@@ -6,10 +6,3 @@ GCash Mini is a financial system that allows a person to send and receive money 
 ### Lab#1
 You are leading a team that will develop the backend system of GCash Mini. Your task is to create an architectural design in microservices approach of the system.
 
-```mermaid
-graph TD;
-    A<-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
