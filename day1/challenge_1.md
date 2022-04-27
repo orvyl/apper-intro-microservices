@@ -81,5 +81,6 @@ _Response_
 {
     "message": "Invalid verification code"
 }
+```
 
 `500` Something went wrong creating the account
