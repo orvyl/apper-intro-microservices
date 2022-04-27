@@ -44,6 +44,7 @@ _Response_
 }
 ```
 `400` Bad request. E.g email already registered, last name is required
+
 `500` Something went wrong creating the account
 
 ### Account Verification
@@ -68,5 +69,7 @@ Header Reference-No: 123141
 _Response_
 
 `200` Account successfully verified. Ready for authentication.
+
 `400` Bad request. E.g invalid verification code
+
 `500` Something went wrong creating the account
