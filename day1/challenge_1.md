@@ -43,7 +43,13 @@ _Response_
     "verification_code": 92372
 }
 ```
+
 `400` Bad request. E.g email already registered, last name is required
+```json
+{
+    "message": "Email already registered"
+}
+```
 
 `500` Something went wrong creating the account
 
@@ -71,5 +77,9 @@ _Response_
 `200` Account successfully verified. Ready for authentication.
 
 `400` Bad request. E.g invalid verification code
+```json
+{
+    "message": "Invalid verification code"
+}
 
 `500` Something went wrong creating the account
