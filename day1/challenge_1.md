@@ -18,7 +18,7 @@ _Request_
 
 | Field | Description | Type/Sample |
 | ------ | ------ | ------ |
-| `(Header)` `Reference-No` | Reference number of the transaction. | `string` "john.oe@apper.ph" |
+| `(Header)` `Reference-No` | Reference number of the transaction. | `string` "1234" |
 | `email` | email address. This will be used as username | `string` "john.doe@apper.ph" |
 | `firstName` | First name of the account owner | `string` "John" |
 | `lastName` | Last name of the account owner | `string` "Doe" |
