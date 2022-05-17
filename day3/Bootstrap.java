@@ -10,7 +10,9 @@ import com.example.hw1.service.TransactionLogService;
 import com.example.hw1.service.UserNotFoundException;
 import com.example.hw1.service.UserService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Boostrap implements CommandLineRunner {
 
     private final UserService userService;
@@ -74,7 +76,7 @@ public class Boostrap implements CommandLineRunner {
         addSeparator("Checkpoint for current user registration counter");
 
         System.out.println("Here are the current users: ");
-        userService.getAllUsers().forEach(user -> System.out.println("First Name: " + user.getFirstName() + ", Registration Date: " + user.getCreatedAt() + ", Last Updated: " + user.getLastUpdated()));
+        userService.getAllUsers().forEach(user -> System.out.println("ID: " + user.getId() + "First Name: " + user.getFirstName() + ", Registration Date: " + user.getCreatedAt() + ", Last Updated: " + user.getLastUpdated()));
 
         addSeparator("Successful user update");
 
