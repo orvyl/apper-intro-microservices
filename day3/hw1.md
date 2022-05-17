@@ -51,6 +51,7 @@
 7. Add and register as bean the class `Bootstrap.java`. Make sure it will be executed upon bootup (see `book-service-v2` application)
 8. Make sure you'll be producing an output similar(note necessarily identical) to this:
 ```
+
 ===== 1. Successful registration and authentication =====
 
 Login success! Welcome, John!
@@ -82,33 +83,33 @@ ERROR! 639175861661 msisdn is already registered
 ===== 8. Checkpoint for current user registration counter =====
 
 Here are the current users: 
-First Name: Kelly, Registration Date: 2022-05-18T06:27:30.189669400, Last Updated: 2022-05-18T06:27:30.189669400
-First Name: John, Registration Date: 2022-05-18T06:27:30.186669, Last Updated: 2022-05-18T06:27:30.186669
+ID: 06d9e548-8d79-46cc-a414-03c891b3bef8First Name: Kelly, Registration Date: 2022-05-18T06:43:23.525157900, Last Updated: 2022-05-18T06:43:23.525157900
+ID: 85a989e1-e7e1-4a50-9348-2a9e711e8e46First Name: John, Registration Date: 2022-05-18T06:43:23.523158, Last Updated: 2022-05-18T06:43:23.523158
 
 ===== 9. Successful user update =====
 
 User 639175861661 updated!
-User(id=a0db9f49-63ca-4120-af66-75de4371d6c0, msisdn=639175861661, password=dac2e053ddb819eb5a7cf1515ccf5618, firstName=John, middleName=, lastName=Juan, email=j.doe@test.com, createdAt=2022-05-18T06:27:30.186669, lastUpdated=2022-05-18T06:27:30.190670)
+User(id=85a989e1-e7e1-4a50-9348-2a9e711e8e46, msisdn=639175861661, password=dac2e053ddb819eb5a7cf1515ccf5618, firstName=John, middleName=, lastName=Juan, email=j.doe@test.com, createdAt=2022-05-18T06:43:23.523158, lastUpdated=2022-05-18T06:43:23.528158600)
 
 ===== 10. Displaying all transactions/action happened =====
 
-[2022-05-18T06:27:30.187669200] 639175861661 : user created
-[2022-05-18T06:27:30.188667900] 639175861661 : user successfully authenticated
-[2022-05-18T06:27:30.189669400] 639175861663 : user created
-[2022-05-18T06:27:30.189669400] 639175861663 : authentication failed
-[2022-05-18T06:27:30.189669400] 639175861661 : registration failed.
-[2022-05-18T06:27:30.190670] 639175861661 : user updated
-[2022-05-18T06:27:30.190670] 639175861661 : user successfully authenticated
+[2022-05-18T06:43:23.523158] 639175861661 : user created
+[2022-05-18T06:43:23.525157900] 639175861661 : user successfully authenticated
+[2022-05-18T06:43:23.525157900] 639175861663 : user created
+[2022-05-18T06:43:23.526157600] 639175861663 : authentication failed
+[2022-05-18T06:43:23.526157600] 639175861661 : registration failed.
+[2022-05-18T06:43:23.528158600] 639175861661 : user updated
+[2022-05-18T06:43:23.528158600] 639175861661 : user successfully authenticated
 
 ===== 11. Login attempt. It must be added in the transaction logs =====
 
-[2022-05-18T06:27:30.187669200] 639175861661 : user created
-[2022-05-18T06:27:30.188667900] 639175861661 : user successfully authenticated
-[2022-05-18T06:27:30.189669400] 639175861663 : user created
-[2022-05-18T06:27:30.189669400] 639175861663 : authentication failed
-[2022-05-18T06:27:30.189669400] 639175861661 : registration failed.
-[2022-05-18T06:27:30.190670] 639175861661 : user updated
-[2022-05-18T06:27:30.190670] 639175861661 : user successfully authenticated
-[2022-05-18T06:27:30.194669400] 639175861661 : user successfully authenticated
+[2022-05-18T06:43:23.523158] 639175861661 : user created
+[2022-05-18T06:43:23.525157900] 639175861661 : user successfully authenticated
+[2022-05-18T06:43:23.525157900] 639175861663 : user created
+[2022-05-18T06:43:23.526157600] 639175861663 : authentication failed
+[2022-05-18T06:43:23.526157600] 639175861661 : registration failed.
+[2022-05-18T06:43:23.528158600] 639175861661 : user updated
+[2022-05-18T06:43:23.528158600] 639175861661 : user successfully authenticated
+[2022-05-18T06:43:23.531160100] 639175861661 : user successfully authenticated
 ```
 9. Create the exception classes and additional classes (if needed). You can add libraries as well (assuming youhave an idea adding library/dependency in pom.xml)
