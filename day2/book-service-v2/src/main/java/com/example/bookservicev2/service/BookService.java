@@ -4,6 +4,11 @@ import com.example.bookservicev2.model.Book;
 
 import java.util.List;
 
+/**
+ * [REVIEW POINT] What's the point of creating an interface {@link BookService}?
+ *
+ */
+
 public interface BookService {
     Book registerBook(String isbn, String title, String author, int publishedYear) throws BookTooYoungException, InvalidFieldFormatException;
     Book getBook(String isbn) throws BookNotFoundException;

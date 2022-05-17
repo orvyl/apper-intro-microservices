@@ -14,6 +14,10 @@ public class BookServiceImpl implements BookService {
 
     private final Map<String, Book> books = new HashMap<>();
 
+    /**
+     * I hope at this point, you can appreciate the advantage of using the {@link IdGenerator} interface here instead of
+     * its existing implementor {@link UUIDFormatIdGenerator} or {@link TimestampIdGenerator}
+     */
     private final IdGenerator idGenerator;
 
     public BookServiceImpl(IdGenerator idGenerator) {

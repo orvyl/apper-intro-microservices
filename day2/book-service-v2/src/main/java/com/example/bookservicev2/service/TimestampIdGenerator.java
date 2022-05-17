@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
+/**
+ * [REVIEW POINT] What is @{@link Profile}?
+ */
+
 @Service
 @Profile("timestamp")
 public class TimestampIdGenerator implements IdGenerator {

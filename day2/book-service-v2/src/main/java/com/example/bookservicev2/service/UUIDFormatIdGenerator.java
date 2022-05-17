@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+/**
+ * [REVIEW POINT] What is @{@link Profile}?
+ */
+
 @Service
 @Profile("uuid")
 public class UUIDFormatIdGenerator implements IdGenerator{
