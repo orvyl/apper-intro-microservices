@@ -27,102 +27,85 @@
     void log(String identifier, String log);
     void displayLogs();
     ```
-    Creat a class `TransactionLogServiceImpl` that implements the interface. Make this class a bean.
+
+    Creat a class `TransactionLogServiceImpl` and here's the implementation:
+    ```
+    private final List<String> logs = new ArrayList<>();
+
+    @Override
+    public void log(String identifier, String log) {
+        logs.add("[" + LocalDateTime.now() + "] " + identifier + " : " + log);
+    }
+
+    @Override
+    public void displayLogs() {
+        logs.forEach(System.out::println);
+    }
+    ```
+
+    Make this class a bean.
 5. Using the bean of `TransactionLogService`, add log in every action inside `UserService` bean. Please see program output for reference.
-6. Execute the following code in a `CommandLineRunner` bean: 
-    ```
-    userService.register("639175861661", "John", "Nuary", "Juan", "j.doe@test.com", "mypassword123");
-    User john = userService.authenticate("639175861661", "mypassword123");
+6. Create classes and exceptions you think you need to solve the program.
+7. Add and register as bean the class `Bootstrap.java`. Make sure it will be executed upon bootup (see `book-service-v2` application)
+8. Make sure you'll be producing an output similar(note necessarily identical) to this:
+```
+===== 1. Successful registration and authentication =====
 
-    System.out.println("Login success! Welcome, " + john.getFirstName() + "!");
-    System.out.println("++=++=");
+Login success! Welcome, John!
 
-    try {
-        userService.register("639175861662", "Feb", "Buary", "Por", "feb2022", "mypassword456");
-    } catch (InvalidUserFieldRegistrationException e) {
-        System.out.println("ERROR! " + e.getMessage());
-    }
+===== 2. Invalid email format =====
 
-    System.out.println("++=++=");
+ERROR! Invalid email format: feb2022
 
-    System.out.println("At this point, we have " + userService.getAllUsers().size() + " registered user/s");
+===== 3. Checkpoint for current user registration counter =====
 
-    System.out.println("++=++=");
+At this point, we have 1 registered user/s
 
-    try {
-        userService.register("639175861663", "Kelly", "", "Klarkzon", "kelly@gmail.com", "thebrownfox");
-        userService.authenticate("639175861663", "mypassword123");
-    } catch (UserNotFoundException e) {
-        System.out.println(e.getMessage());
-    }
+===== 4. Failed authentication =====
 
-    System.out.println("++=++=");
+639175861663 with provided password is invalid
 
-    System.out.println("At this point, we have " + userService.getAllUsers().size() + " registered user/s");
+===== 5. Checkpoint for current user registration counter =====
 
-    System.out.println("++=++=");
+At this point, we have 2 registered user/s
 
-    try {
-        userService.register("639175861664", "Teri", "Teri", "", "teri@bol.com", "mypassword456");
-    } catch (InvalidUserFieldRegistrationException e) {
-        System.out.println("ERROR! " + e.getMessage());
-    }
+===== 6. Empty lastName. IMPORTANT! exception message must identify what field is invalid/empty =====
 
-    System.out.println("++=++=");
+ERROR! lastName field is required
 
-    try {
-        userService.register("639175861661", "John", "Nuary", "Juan", "j.doe@test.com", "mypassword123");
-    } catch (InvalidUserFieldRegistrationException e) {
-        System.out.println("ERROR! " + e.getMessage());
-    }
+===== 7. User already registered =====
 
-    System.out.println("++=++=");
+ERROR! 639175861661 msisdn is already registered
 
-    System.out.println("Here are the current users: ");
-    userService.getAllUsers().forEach(user -> System.out.println("First Name: " + user.getFirstName() + ", Registration Date: " + user.getCreatedAt() + ", Last Updated: " + user.getLastUpdated()));
+===== 8. Checkpoint for current user registration counter =====
 
-    System.out.println("++=++=");
+Here are the current users: 
+First Name: Kelly, Registration Date: 2022-05-18T06:27:30.189669400, Last Updated: 2022-05-18T06:27:30.189669400
+First Name: John, Registration Date: 2022-05-18T06:27:30.186669, Last Updated: 2022-05-18T06:27:30.186669
 
-    userService.update("639175861661", "John", "", "Juan", "j.doe@test.com", "$trong3rP@ssw0rd");
-    john = userService.authenticate("639175861661", "$trong3rP@ssw0rd");
+===== 9. Successful user update =====
 
-    System.out.println("User " + john.getMsisdn() + " updated!");
-    System.out.println(john);
+User 639175861661 updated!
+User(id=a0db9f49-63ca-4120-af66-75de4371d6c0, msisdn=639175861661, password=dac2e053ddb819eb5a7cf1515ccf5618, firstName=John, middleName=, lastName=Juan, email=j.doe@test.com, createdAt=2022-05-18T06:27:30.186669, lastUpdated=2022-05-18T06:27:30.190670)
 
-    System.out.println("++=++=");
+===== 10. Displaying all transactions/action happened =====
 
-    transactionLogService.displayLogs();
-    ```
-7. Here's a sample output:
-    ```
-    Login success! Welcome, John!
-    ++=++=
-    ERROR! Invalid email format: feb2022
-    ++=++=
-    At this point, we have 1 registered user/s
-    ++=++=
-    639175861663 with provided password is invalid
-    ++=++=
-    At this point, we have 2 registered user/s
-    ++=++=
-    ERROR! lastName field is required
-    ++=++=
-    ERROR! 639175861661 msisdn is already registered
-    ++=++=
-    Here are the current users: 
-    First Name: Kelly, Registration Date: 2022-05-18T00:02:11.187395800, Last Updated: 2022-05-18T00:02:11.187395800
-    First Name: John, Registration Date: 2022-05-18T00:02:11.155401500, Last Updated: 2022-05-18T00:02:11.155401500
-    ++=++=
-    User 639175861661 updated!
-    User(id=9dcb7cbe-dc04-4cad-8532-93a176633352, msisdn=639175861661, password=dac2e053ddb819eb5a7cf1515ccf5618, firstName=John, middleName=, lastName=Juan, email=j.doe@test.com, createdAt=2022-05-18T00:02:11.155401500, lastUpdated=2022-05-18T00:02:11.187395800)
-    ++=++=
-    [2022-05-18T00:02:11.182395900] 639175861661 : user created
-    [2022-05-18T00:02:11.184396700] 639175861661 : user successfully authenticated
-    [2022-05-18T00:02:11.187395800] 639175861663 : user created
-    [2022-05-18T00:02:11.187395800] 639175861663 : authentication failed
-    [2022-05-18T00:02:11.187395800] 639175861661 : user updated
-    [2022-05-18T00:02:11.188394400] 639175861661 : user successfully authenticated
-    ```
-8. Create classes and exception you think you need to solve the program.
+[2022-05-18T06:27:30.187669200] 639175861661 : user created
+[2022-05-18T06:27:30.188667900] 639175861661 : user successfully authenticated
+[2022-05-18T06:27:30.189669400] 639175861663 : user created
+[2022-05-18T06:27:30.189669400] 639175861663 : authentication failed
+[2022-05-18T06:27:30.189669400] 639175861661 : registration failed.
+[2022-05-18T06:27:30.190670] 639175861661 : user updated
+[2022-05-18T06:27:30.190670] 639175861661 : user successfully authenticated
 
+===== 11. Login attempt. It must be added in the transaction logs =====
 
+[2022-05-18T06:27:30.187669200] 639175861661 : user created
+[2022-05-18T06:27:30.188667900] 639175861661 : user successfully authenticated
+[2022-05-18T06:27:30.189669400] 639175861663 : user created
+[2022-05-18T06:27:30.189669400] 639175861663 : authentication failed
+[2022-05-18T06:27:30.189669400] 639175861661 : registration failed.
+[2022-05-18T06:27:30.190670] 639175861661 : user updated
+[2022-05-18T06:27:30.190670] 639175861661 : user successfully authenticated
+[2022-05-18T06:27:30.194669400] 639175861661 : user successfully authenticated
+```
