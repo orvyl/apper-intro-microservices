@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "e8a9dce9-4142-49d8-8cec-ac874d10d331",
+		"name": "Book Service v3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14511315"
+	},
+	"item": [
+		{
+			"name": "Create a book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\": \"ISBN1234567756757\",\r\n    \"title\": \"The quick brown fox\",\r\n    \"author\": \"L.Dog\",\r\n    \"publishedYear\": 2010\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/book",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/book/ISBN1234567756757",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book",
+						"ISBN1234567756757"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a book (complete details)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/book/ISBN1234567756757?full=true",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book",
+						"ISBN1234567756757"
+					],
+					"query": [
+						{
+							"key": "full",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update book",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"The quick brown fox jumps over\",\r\n    \"author\": \"L.Dog\",\r\n    \"publishedYear\": 2010\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/book/ISBN1234567756757",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book",
+						"ISBN1234567756757"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/book/ISBN1234567756757",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book",
+						"ISBN1234567756757"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Count book by year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/book/count/2010",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book",
+						"count",
+						"2010"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
