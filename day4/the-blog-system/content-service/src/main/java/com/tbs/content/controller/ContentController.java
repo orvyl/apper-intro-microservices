@@ -4,6 +4,7 @@ import com.tbs.content.model.Content;
 import com.tbs.content.repository.ContentRepository;
 import con.tbs.payload.ContentResponse;
 import con.tbs.payload.CreateContentRequest;
+import con.tbs.payload.GetAllContentsResponse;
 import con.tbs.payload.ReviewResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 @RestController
 @RequestMapping("content")
@@ -57,6 +60,26 @@ public class ContentController {
                 response.getReviews().add(rs);
             });
         }
+
+        return response;
+    }
+
+    @GetMapping("all")
+    public GetAllContentsResponse getAll() {
+        GetAllContentsResponse response = new GetAllContentsResponse(contentRepository.count(), new ArrayList<>());
+        contentRepository.findAll().forEach(content -> {
+            ContentResponse contentResponse = new ContentResponse(""+content.getId(), content.getUserId(), content.getTitle(), content.getBody());
+
+            content.getReviews().forEach(review -> {
+                ReviewResponse rs = new ReviewResponse(""+review.getId(), review.getCreatedAt(), review.getLastUpdated());
+                rs.setComment(review.getComment());
+                rs.setStars(review.getStars());
+
+                contentResponse.getReviews().add(rs);
+            });
+
+            response.getContents().add(contentResponse);
+        });
 
         return response;
     }

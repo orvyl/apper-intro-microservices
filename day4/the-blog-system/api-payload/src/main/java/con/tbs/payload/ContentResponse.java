@@ -25,4 +25,7 @@ public class ContentResponse {
         this.title = title;
         this.body = body;
     }
+
+    public ContentResponse() {
+    }
 }

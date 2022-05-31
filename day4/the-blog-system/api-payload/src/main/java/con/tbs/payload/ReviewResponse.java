@@ -18,4 +18,7 @@ public class ReviewResponse {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
+    public ReviewResponse() {
+    }
 }
