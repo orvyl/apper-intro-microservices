@@ -1,0 +1,17 @@
+ph/apper/bookservicev3/service/TimestampIdGenerator.class
+ph/apper/bookservicev3/service/BookTooYoungException.class
+ph/apper/bookservicev3/service/BookNotFoundException.class
+ph/apper/bookservicev3/App.class
+ph/apper/bookservicev3/service/BookAlreadyRegisteredException.class
+ph/apper/bookservicev3/model/Book.class
+ph/apper/bookservicev3/service/BookService.class
+ph/apper/bookservicev3/service/UUIDFormatIdGenerator.class
+ph/apper/bookservicev3/payload/ErrorResponse.class
+ph/apper/bookservicev3/controller/BookController.class
+ph/apper/bookservicev3/payload/GetBookResponse.class
+ph/apper/bookservicev3/payload/CreateBookRequest.class
+ph/apper/bookservicev3/service/BookServiceImpl.class
+ph/apper/bookservicev3/payload/CreateBookResponse.class
+ph/apper/bookservicev3/payload/UpdateBookRequest.class
+ph/apper/bookservicev3/repository/BookRepository.class
+ph/apper/bookservicev3/service/IdGenerator.class
