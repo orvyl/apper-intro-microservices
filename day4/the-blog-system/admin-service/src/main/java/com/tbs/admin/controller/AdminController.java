@@ -61,4 +61,6 @@ public class AdminController {
 
         throw new GetAllException("Something went wrong");
     }
+
+    //TODO implement get all activities. Make endpoint configurable. Create necessary payload class/es.
 }
