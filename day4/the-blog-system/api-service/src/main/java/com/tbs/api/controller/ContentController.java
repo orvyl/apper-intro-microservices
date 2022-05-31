@@ -21,6 +21,7 @@ public class ContentController {
      * comment to a post
      * Update content
      * Update comment
+     * Search content
      */
 
     @PostMapping
@@ -51,4 +52,6 @@ public class ContentController {
 
         return null;
     }
+
+    //TODO implement search content
 }

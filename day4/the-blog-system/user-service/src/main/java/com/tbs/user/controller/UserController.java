@@ -35,11 +35,15 @@ public class UserController {
             throw new UserRegistrationException("User " + request.getEmail() + " already registered!");
         }
 
+        //TODO hashed the password and save it.
         User newUser = new User(request.getEmail(), request.getFirstName(), request.getLastName(), request.getPassword());
         User savedUser = userRepository.save(newUser);
 
         return new UserRegistrationResponse(savedUser.getId());
     }
+
+    //TODO implement authentication.
+    //TODO implement change password
 
     @GetMapping("all")
     public GetAllUsersResponse getAllUsers() {
