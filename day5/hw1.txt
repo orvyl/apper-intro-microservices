@@ -1,0 +1,27 @@
+Assignment
+
+api-service
+1. User registration
+2. User login
+3. User change password
+4. Create content
+5. Review content
+6. Update content 
+7. Update review 
+8. Search content
+
+user-service
+1. create authentication (api-service user login will call)
+2. create change password (api-service change password will call)
+3. Hash and save password
+4. Log an activity in every operation in user service (except get all users). it's up to you what action, data, and identity you'll use.
+
+content-service
+1. Log an activity in every operation in content service (except get all contents). it's up to you what action, data, and identity you'll use.
+2. create update review.
+3. create search content (api-service search content will call)
+
+admin-service
+1. ceate get all activities
+
+NOTE: all the tools/technique you'll be needing here has been discuss and also avaialble in the screen recording I shared.
