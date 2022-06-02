@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "b5e0b26d-de56-4eaa-b9e0-8a4424730367",
+		"name": "THE BLOG SYSTEM (Sample requests)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2773306"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"pika@apper.ph\",\n    \"firstName\": \"Pika\",\n    \"lastName\": \"Chu\",\n    \"password\": \"aye123\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Content",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"random-user-id\",\n    \"title\": \"The quick brown fox\",\n    \"body\": \"s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/content",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"content"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Content (with-reviews can be true or false)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/content/1?with-reviews=true",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"content",
+						"1"
+					],
+					"query": [
+						{
+							"key": "with-reviews",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Review",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"contentId\": \"1\",\n    \"userId\": \"user123\",\n    \"comment\": \"very enlighthening\",\n    \"stars\": 5\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/review",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Activity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"action\": \"CONTENT_UPDATE\",\n    \"data\": \"title from The quick brown fox --> THe quick brown lazy dog\",\n    \"identity\": \"user-123, THe quick brown lazy dog\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/activity",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"activity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Activity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/activity?q=user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"activity"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(ADMIN) Get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/admin/all-users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"all-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(ADMIN) Get all contents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/admin/all-contents",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"all-contents"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
