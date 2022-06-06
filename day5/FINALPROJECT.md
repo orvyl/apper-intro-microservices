@@ -29,6 +29,8 @@ You will be developing the API that the UIs of GCash Mini will have.
 8. [BONUS] Create an ACTIVITY service that logs all user registration, cash in and out, and transfer. Fields are up to you.
 9. [BONUS] if you will do #8, create an api where ADMIN can retrieve all activities.
 10. [BIG BONUS] Deploy your project to AWS (one microservice is to one ec2.)
+    - USE freetier EC2s
+    - Notify me ASAP if you were able to deploy it.
 
 ### Output of the project
 
@@ -36,9 +38,35 @@ You will be developing the API that the UIs of GCash Mini will have.
 2. Documentation/API Specification. You can create an MD file or in Swagger.
 3. Code repository of your project.
     - Name of the repo: gcash-mini-{your group name} E.g gcach-mini-boombusters
+    - Include inside the architectural design of your microservices.
     - Your leader/representative will email me the link along with the names of the members.
-4. INDIVIDUAL. Email me:
+4. If you will do the deployment to AWS. Include in your email the public IP/DNS.
+5. INDIVIDUAL. Email me:
     - Your contribution to your final project
     - Top 3 things you've learned in this course
     - What's your moving forward after completing this course?
+
+### Groupings:
+Lorenzo Gabriel
+Bernabe
+Renz Joshua
+Joshua
+William
+
+Densel Ross
+Jemina Grace
+Stanley
+Lemuel Aldwim
+Regina
+
+Louie Angelo
+Renz Kristopher
+Francis Paolo
+Christelle Nina
+
+Carl Jefferson
+Mac Robert
+Celso
+Christine Angela
+Arthur Akira
 
